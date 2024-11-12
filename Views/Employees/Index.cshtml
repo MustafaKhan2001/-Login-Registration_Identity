@@ -1,0 +1,39 @@
+﻿@model IEnumerable<demo_Identity_4.Models.Employee>
+
+@{
+    ViewData["Title"] = "Employees Index";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Employee Management</h2>
+    <a href="@Url.Action("Create", "Employees")" class="btn btn-success mb-3">Add New Employee</a>
+
+    <table class="table table-striped table-bordered table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Name</td>
+                    <td>@employee.Email</td>
+                    <td>@employee.Phone</td>
+                    <td>
+                        <a href="@Url.Action("Edit", "Employees", new { id = employee.Id })" class="btn btn-primary btn-sm">Edit</a>
+                        <a href="@Url.Action("Delete", "Employees", new { id = employee.Id })" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

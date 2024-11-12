@@ -1,0 +1,19 @@
+﻿@model demo_Identity_4.Models.Employee
+
+@{
+    ViewData["Title"] = "Delete Employees";
+}
+
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Delete Employee</h2>
+
+    <form method="post">
+        <div class="alert alert-danger">
+            <p>Are you sure you want to delete the following employee?</p>
+            <p><strong>@Model.Name</strong> - @Model.Email</p>
+        </div>
+
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a href="@Url.Action("Index", "Employees")" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
